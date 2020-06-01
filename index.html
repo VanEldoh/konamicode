@@ -1,0 +1,76 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="csshake.css" />`
+    <meta charset="UTF-8">
+    <title>Password test</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+
+  </head>
+  <body>
+
+    <div class="title">
+      <center><h1><span id="typed"></span></h1></center>
+    </div>
+
+<div id="hidden">
+<div class="glitchImage">
+</div>
+ <div class="shake  shake-crazy shake-constant" id="sorrytxt">
+   <center><h2>DESO</h2></center>
+ </div>
+</div>
+
+
+    <script>
+      const pressed = [];
+
+      const secretCode = 'supernova';
+      function changeBodyBg(color){
+        document.body.style.background = color;
+      }
+      function hideDiv(display) {
+      document.getElementById("typed").style.display = display;
+      }
+
+      function showDiv(display){
+        document.getElementById("hidden").style.display = display;
+      }
+
+
+      window.addEventListener('keyup', (e) => {
+        console.log(e.key);
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        if (pressed.join('').includes(secretCode)) {
+          changeBodyBg('white');
+          hideDiv('none');
+          showDiv('block');
+
+    var audio = new Audio("audio/oasis.mp3");
+    audio.play();
+
+          console.log('nice!');
+
+        }
+        console.log(pressed);
+      });
+
+    </script>
+
+    <!-- typed -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+    <script>const loadDynamicBannerText = () => {
+      new Typed('#typed', {
+        strings: ["ENTER THE PASSWORD"],
+        typeSpeed: 50,
+        loop: false
+      });
+    }
+    loadDynamicBannerText();
+  </script>
+  </body>
+  </html>
