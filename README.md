@@ -1,1 +1,1 @@
-Konami code JS
+secret password for fun !
